@@ -18,5 +18,5 @@ chmod +x /usr/local/bin/gotifier
 
 **Example**<br>
 ```
-gotifier add --date "06.07.2026 20:00" --message "Test" --priority 10 --repeat 2
+gotifier add --date "06.07.2026-20:00" --message "Test" --priority 10 --repeat 2
 ```
