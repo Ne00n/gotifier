@@ -1,6 +1,6 @@
 import datetime, secrets, string, time, json, sys, os
 
-options = "add <date> <message>, list, del <id>"
+options = "add --date <date> --message <message>, list, del <id>"
 path = os.path.dirname(os.path.realpath(__file__))
 
 if not os.path.isfile(f"{path}/alerts.json"):
