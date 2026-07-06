@@ -12,7 +12,7 @@ for id,details in list(alerts.items()):
     if current > details['timestamp']:
         print(f"Running {id}")
         try:
-            payload = {"title": details['message'], "message": details['message'], "priority": 10}
+            payload = {"title": details['message'], "message": details['message'], "priority": details['priority']}
             req = requests.post(f"{config['gotifyInstance']}/message?token={config['gotifyToken']}", json=payload, timeout=10)
             if req.status_code == 200: del alerts[id]
         except Exception as ex:
