@@ -13,7 +13,7 @@ elif sys.argv[1] == "add":
     priority, repeat = 10, 0
     for index, param in enumerate(sys.argv):
         if param == "--date":
-            timestamp = int(time.mktime(datetime.datetime.strptime(sys.argv[index +1], "%d.%m.%Y-%H:%M").timetuple()))
+            timestamp = int(time.mktime(datetime.datetime.strptime(sys.argv[index +1], "%d.%m.%Y %H:%M").timetuple()))
         if param == "--message":
             message = sys.argv[index +1]
         if param == "--priority":

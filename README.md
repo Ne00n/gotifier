@@ -9,14 +9,12 @@ chown -R gotifier:gotifier /opt/gotifier/
 cat <<EOF >>/usr/local/bin/gotifier
 #!/bin/bash
 if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
-su gotifier <<EOF2
-python3 /opt/gotifier/cli.py \$@
-EOF2
+exec sudo -u gotifier python3 /opt/gotifier/cli.py "$@"
 EOF
 chmod +x /usr/local/bin/gotifier
 ```
 
 **Example**<br>
 ```
-gotifier add --date "06.07.2026-20:00" --message "Test" --priority 10 --repeat 2
+gotifier add --date "06.07.2026 20:00" --message "Test" --priority 10 --repeat 2
 ```
