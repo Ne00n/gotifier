@@ -14,7 +14,9 @@ for id,details in list(alerts.items()):
         try:
             payload = {"title": details['message'], "message": details['message'], "priority": details['priority']}
             req = requests.post(f"{config['gotifyInstance']}/message?token={config['gotifyToken']}", json=payload, timeout=10)
-            if req.status_code == 200: del alerts[id]
+            details['runs'] = details['runs'] +1
+            if req.status_code == 200 and details['runs'] > details['repeat']: 
+                del alerts[id]
         except Exception as ex:
             print(f"Failed to push {id}, got error: {ex}")
 
